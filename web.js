@@ -2,8 +2,9 @@ var express = require('express');
 
 var app = express.createServer(express.logger());
 
-var sendData;
+var sendData = '';
 
+// Reading a file
 fs = require('fs')
 fs.readFile('./index.html', 'utf8', function (err,data) {
   if (err) throw err;
@@ -12,7 +13,6 @@ fs.readFile('./index.html', 'utf8', function (err,data) {
 });
 
 app.get('/', function(request, response) {
-  //response.send('Hello World 2!');
   response.send(sendData);
 });
 
